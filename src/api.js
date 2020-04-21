@@ -153,7 +153,8 @@ const api = new OpenAPIBackend({
     'post-users': (c, req, res) => authn.secureWithToken(c, req, res, handlers.postUsers),
     'get-signed-upload-req': handlers.getSignedUploadReq,
     'batch-signed-upload-req': handlers.batchedSignedUploadReq,
-    notFound: (c, req, res) => res.status(404).json({ err: 'not found' })
+    notFound: (c, req, res) => res.status(404).json({ err: 'not found' }),
+    notImplemented: (c, req, res) => res.status(501).json( { err: 'api not implemented' })
   }
 });
 
